@@ -12,11 +12,6 @@ pipeline {
     }
 
     stage("build") {
-      when {
-        expression {
-          BRANCH_NAME == "main"
-        }
-      }
       steps {
         echo "building the application"
         sh "mvn -DskipTests package"
@@ -39,11 +34,6 @@ pipeline {
     }
 
     stage("deploy") {
-      when {
-        expression {
-          BRANCH_NAME == "main"
-        }
-      }
       steps {
         echo "deploying the application"
       }
